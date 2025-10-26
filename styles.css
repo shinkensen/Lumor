@@ -682,18 +682,44 @@ body {
     }
 }
 
-.outer {
-    display: flex;
-    justify-content: center; /* horizontal */
+.outer1 {
     align-items: center;     /* vertical */
     height: 100vh;           
+}
+.outer2 {
+    display: flex;
+    justify-content: center; /* horizontal */         
 }
 .inner{
     width:50%;
     max-width: 600px;
     height:400px;
+    
 }
-
+.login{
+    text-align: center;
+    font-size: 2.5em;
+    transition: 0.2s ease-in-out;
+}
+.login:hover{
+    color: var(--primary-color)
+}
+.input{
+    padding-left: 5px;
+    height:40px;
+    font-size: 1.2em;
+    border:1px solid white;
+    border-bottom:1px solid black;
+    width:85%;
+    margin-top: 50px;
+}
+.goButton{
+    width: 100px; 
+    height:50px; 
+    border:3px solid var(--accent-color); 
+    border-radius:10px;
+    background-color:var(--accent-color)
+}
 @media (max-width:768px) {
     .inner{
         width:75%;

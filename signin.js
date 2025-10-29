@@ -23,8 +23,11 @@ go.addEventListener("click", ()=>{
     if (!usernameCheck("" + userInput.value)[1]){
         alert(usernameCheck(userInput.value)[0]);
     }
+    else if (!passCheck(passInput.value)[1]){
+        alert(passCheck(passInput.value)[0]);
+    }
     else{
-
+        fetch("https://lumor-backend.onrender.com", )
     }
 })
 const usernameCheck = (name)=>{

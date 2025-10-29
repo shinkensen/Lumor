@@ -1,9 +1,4 @@
-// ==================== //
-// Loading Animation Logic
-// ==================== //
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Hide loading overlay after animation completes
     const loadingOverlay = document.getElementById('loadingOverlay');
     const mainContent = document.getElementById('mainContent');
     
@@ -13,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
             mainContent.style.display = 'block';
         }, 3500);
     }
-    
-    // Add smooth scroll behavior for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -27,13 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Add intersection observer for fade-in animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -42,15 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-    
-    // Observe feature cards for animation
     document.querySelectorAll('.feature-card').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
-    
     // Add ripple effect to buttons
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function(e) {

@@ -27,14 +27,6 @@ go.addEventListener("click", ()=>{
 
     }
 })
-
-
-
-
-
-
-
-
 const usernameCheck = (name)=>{
     if (name.length < 6){
         return ["Username too short", false];
@@ -44,12 +36,26 @@ const usernameCheck = (name)=>{
     }
     return ["valid",true];
 }
-
-
 const passCheck = (name)=>{
     const reqs= [false,false,false]
     const names= name.split("");
-    for (const s of names){
-        if (s - 0!=undefined){}
+    if (names.length<6){
+        reqs[2]=true;
     }
+    for (const s of names){
+        if (s - 0!=undefined){
+            reqs[0]=true
+        }
+        if (s.toUpperCase() == s ){
+            reqs[1] = true
+        }
+    }
+    if (reqs[0]&&reqs[1] && reqs[2]){return ["valid",true]}
+    if (!reqs[2]){
+        return ["Password Too Short"];
+    }
+    if (!reqs[0]){
+        return ["At least one number required", false];
+    }
+    return ["Uppercase letter required"];
 }

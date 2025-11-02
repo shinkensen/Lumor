@@ -37,8 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
-    });
-    // Add ripple effect to buttons
+    });s
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
@@ -60,20 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-// ==================== //
-// Dashboard Functionality
-// ==================== //
-
-// Add active state to navigation
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function() {
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         this.classList.add('active');
     });
 });
-
-// Notification button animation
 document.querySelectorAll('.icon-button').forEach(button => {
     button.addEventListener('click', function() {
         this.style.transform = 'scale(0.95)';
@@ -82,8 +73,6 @@ document.querySelectorAll('.icon-button').forEach(button => {
         }, 100);
     });
 });
-
-// Simulate loading data for dashboard
 if (window.location.pathname.includes('dashboard.html')) {
     setTimeout(() => {
         document.querySelectorAll('.summary-card').forEach((card, index) => {
@@ -91,8 +80,6 @@ if (window.location.pathname.includes('dashboard.html')) {
         });
     }, 100);
 }
-
-// Add CSS for ripple effect dynamically
 const style = document.createElement('style');
 style.textContent = `
     .btn {
@@ -117,3 +104,6 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+if (localStorage.getItem('token')!==null){
+    window.location.href = 'signin.html'
+}

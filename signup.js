@@ -1,22 +1,24 @@
-//import {createClient} from 'https://esm.sh/@supabase/supabase-js';
-//const supabase= createClient("https://rsaquxvrhyudikhkviti.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzYXF1eHZyaHl1ZGlraGt2aXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEyNTM3MzMsImV4cCI6MjA3NjgyOTczM30.py5-5y8MO4foxXPHvwzgHKlW2Q0PIqQ2ktGwIPRwEWs")
 const url='https://lumor-backend.onrender.com/'
 const go=document.getElementById("go");
 const emailInput= document.getElementById("email");
 const passInput= document.getElementById("pass");
-
+const nameInput= document.getElementById("input");
 go.addEventListener("click", ()=>{
-    if (!emailCheck(emailInput.value)){
-        alert("Incorrect Username or Password");
+    if (!emailCheck("" + emailInput.value)[1]){
+        alert(emailCheck(emailInput.value)[0]);
         clear();
     }
-    else if (!passCheck(passInput.value)){
-        alert("Incorrect Username or Password")
+    else if (!passCheck(passInput.value)[1]){
+        alert(passCheck(passInput.value)[0])
+        clear();
+    }
+    else if (nameInput.value.length ==0){
+        alert("Name is required")
         clear();
     }
     else{
         const f=async () => {
-            const response= await fetch(url + "login",{
+            const response= await fetch(url + "signup",{
                 method: 'POST',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify({email: emailInput.value,pass: passInput.value})
@@ -42,12 +44,12 @@ go.addEventListener("click", ()=>{
 
 const emailCheck = (email)=>{
     if (!validateEmail(email)){
-        return  false;
+        return ["Invalid Email", false];
     }
-    return  true;
+    return ["valid",true];
 }
 
-const clear = ()=>{emailInput.value="";passInput.value="";}
+const clear = ()=>{emailInput.value="";passInput.value="";nameInput.value=""}
 const validateEmail = (email) => {
     return String(email)
     .toLowerCase()
@@ -58,7 +60,7 @@ const validateEmail = (email) => {
 const passCheck = (name)=>{
     const reqs= [false,false];
     const names= name.split("");
-    if (names.length<5){return false}
+    if (names.length<5){return ["Password Too Short", false]}
     for (const s of names){
         if (!isNaN(s - 0)){
             reqs[0]=true;
@@ -68,10 +70,10 @@ const passCheck = (name)=>{
         }
     }
     if (!reqs[0]){
-        return false;
+        return ["Must include a number",false];
     }
     else if (!reqs[1]){
-        return false;
+        return ["Must include uppercase letters",false];
     }
-    return true;
+    return ["valid",true]
 }

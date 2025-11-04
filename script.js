@@ -1,3 +1,5 @@
+const url='https://lumor-backend.onrender.com/';
+
 document.addEventListener('DOMContentLoaded', function() {
     const loadingOverlay = document.getElementById('loadingOverlay');
     const mainContent = document.getElementById('mainContent');
@@ -104,6 +106,20 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-if (localStorage.getItem('token')!==null){
-    window.location.href = 'signin.html'
+if (localStorage.getItem('token')==null){
+    window.location.href = 'signin.html';
+}
+else{
+    const f= async() =>{
+        const res = await fetch(url + "valid",{
+                method: 'GET',
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify({uuid: localStorage.getItem('token')})
+        })
+        const data= await res.json();  
+        if (res.status === 200){
+            window.location.href = 'signin.html';
+        }
+    }
+    f();
 }

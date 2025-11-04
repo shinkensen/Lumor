@@ -1,11 +1,13 @@
-//import {createClient} from 'https://esm.sh/@supabase/supabase-js';
-//const supabase= createClient("https://rsaquxvrhyudikhkviti.supabase.co","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJzYXF1eHZyaHl1ZGlraGt2aXRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjEyNTM3MzMsImV4cCI6MjA3NjgyOTczM30.py5-5y8MO4foxXPHvwzgHKlW2Q0PIqQ2ktGwIPRwEWs")
 const url='https://lumor-backend.onrender.com/'
 const go=document.getElementById("go");
 const emailInput= document.getElementById("email");
 const passInput= document.getElementById("pass");
-
+let interval;
 go.addEventListener("click", ()=>{
+    let dots= ['.','..','...']
+    let index=0;
+    go.disabled= true;
+    interval = setInterval(()=>{document.getElementById("text").innerText= "Loading" + dots[index%3];index++;},200)
     if (!emailCheck(emailInput.value)){
         alert("Incorrect Username or Password");
         clear();
@@ -21,18 +23,22 @@ go.addEventListener("click", ()=>{
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify({email: emailInput.value,pass: passInput.value})
             })
-            const data= await response.json()   
+            const data= await response.json();
             console.log(data)
             if (!response.ok){
                 if (response.status==404){
                     alert("Incorrect Username or Password")
+                    clear()
                 }
                 else{
                     alert("Login Failed " + response.status);
+                    clear()
                 }
             }
             else{
                 localStorage.setItem('token', data.token)
+                clear()
+                window.location.href = 'dashboard.html'
             }
         }
         f()
@@ -46,8 +52,13 @@ const emailCheck = (email)=>{
     }
     return  true;
 }
-
-const clear = ()=>{emailInput.value="";passInput.value="";}
+const clear = ()=>{
+    emailInput.value="";
+    passInput.value="";
+    clearInterval(interval);
+    document.getElementById("text").innerText= "Go";
+    go.disabled =false;
+}
 const validateEmail = (email) => {
     return String(email)
     .toLowerCase()

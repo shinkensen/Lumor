@@ -1,4 +1,4 @@
-const url='https://lumor-backend.onrender.com/';
+const url='https://lumor-backend.onrender.com';
 
 document.addEventListener('DOMContentLoaded', function() {
     const loadingOverlay = document.getElementById('loadingOverlay');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
-    });s
+    });
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
@@ -106,20 +106,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-if (localStorage.getItem('token')==null){
-    window.location.href = 'signin.html';
-}
-else{
-    const f= async() =>{
-        const res = await fetch(url + "valid",{
-                method: 'GET',
-                headers: {'Content-Type' : 'application/json'},
-                body: JSON.stringify({uuid: localStorage.getItem('token')})
-        })
-        const data= await res.json();  
-        if (res.status === 200){
-            window.location.href = 'signin.html';
-        }
-    }
-    f();
-}

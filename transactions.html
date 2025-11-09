@@ -30,8 +30,8 @@
             </div>
             
             <nav class="nav">
-                <a href="dashboard.html" class="nav-link active">Dashboard</a>
-                <a href="transactions.html" class="nav-link">Transactions</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="transactions.html" class="nav-link active">Transactions</a>
                 <a href="#" class="nav-link">Budgets</a>
                 <a href="#" class="nav-link">Goals</a>
                 <a href="#" class="nav-link">Reports</a>
@@ -56,95 +56,11 @@
             </div>
         </div>
     </header>
+    <script>
+        const avatar= document.getElementById("avatar");
+        avatar.src = localStorage.getItem("avatar")
 
-    <!-- Main Dashboard Content -->
-    <main class="dashboard-main">
-        <div class="container">
-            <div class="dashboard-header">
-                <h1>Welcome back!</h1>
-                <p class="subtitle">Here's your financial overview</p>
-            </div>
-
-            <div class="dashboard-grid">
-                <!-- Summary Cards -->
-                <div class="card summary-card">
-                    <div class="card-header">
-                        <span class="card-icon">💰</span>
-                        <span class="card-label">Total Balance</span>
-                    </div>
-                    <div class="card-value" id="total">$----</div>
-                    <div class="card-change positive"></div>
-                </div>
-
-                <div class="card summary-card">
-                    <div class="card-header">
-                        <span class="card-icon">📈</span>
-                        <span class="card-label">Income</span>
-                    </div>
-                    <div class="card-value" id="income">$----</div>
-                    <div class="card-change positive"></div>
-                </div>
-
-                <div class="card summary-card">
-                    <div class="card-header">
-                        <span class="card-icon" id="expenses">📉</span>
-                        <span class="card-label">Expenses</span>
-                    </div>
-                    <div class="card-value" id="savings">$----</div>
-                    <div class="card-change negative"></div>
-                </div>
-
-                <div class="card summary-card">
-                    <div class="card-header">
-                        <span class="card-icon">💎</span>
-                        <span class="card-label">Savings</span>
-                    </div>
-                    <div class="card-value">$----</div>
-                    <div class="card-change positive"></div>
-                </div>
-            </div>
-
-            <div class="dashboard-content">
-                <div class="card chart-card">
-                    <h3>Spending Overview</h3>
-                    <div class="chart-placeholder">
-                        <p>Chart will be displayed here</p>
-                    </div>
-                </div>
-
-                <div class="card transactions-card">
-                    <h3>Recent Transactions</h3>
-                    <div class="transaction-list">
-                        <div class="transaction-item">
-                            <div class="transaction-icon" id="transIcon1" ></div>
-                            <div class="transaction-details">
-                                <div class="transaction-name" id="name1"></div>
-                                <div class="transaction-date" id="date1"></div>
-                            </div>
-                            <div class="transaction-amount" id="price1"></div>
-                        </div>
-                        <div class="transaction-item">
-                            <div class="transaction-icon" id="transIcon2"></div>
-                            <div class="transaction-details" >
-                                <div class="transaction-name" id="name2"></div>
-                                <div class="transaction-date" id="date2"></div>
-                            </div>
-                            <div class="transaction-amount" id="price2"></div>
-                        </div>
-                        <div class="transaction-item">
-                            <div class="transaction-icon" id="transIcon3"></div>
-                            <div class="transaction-details">
-                                <div class="transaction-name" id="name3"></div>
-                                <div class="transaction-date" id="date3"></div>
-                            </div>
-                            <div class="transaction-amount" id="price3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <script src="script.js"></script>
+    </script>
     <script src="secScript.js"></script>
 </body>
 </html>

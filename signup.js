@@ -76,7 +76,7 @@ go.addEventListener("click", ()=>{
             }
             else{
                 localStorage.setItem('token', data.token)
-                window.location.href = 'login.html';
+                window.location.href = 'signin.html';
             }
         }
         f()

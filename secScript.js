@@ -55,11 +55,11 @@ const mostRecent = async()=>{
         rs[i][1].innerText = trans.name;
         rs[i][2].innerText = date(trans.time, true);
         if (trans.price >0){
-            rs[i][3].innerText ="+" + trans.price;
+            rs[i][3].innerText ="+$" + trans.price.toFixed(2);
             rs[i][3].classList.add("positive");
         }
         else{
-            rs[i][3].innerText = trans.price;
+            rs[i][3].innerText = "$" + trans.price.toFixed(2);
             rs[i][3].classList.add("negative");
         }
     }}
@@ -117,3 +117,25 @@ const monthMake = (month) =>{
     }
     return month;
 }
+const form = document.querySelector('.add-transaction-form');
+
+form.addEventListener('submit', async(event) => {
+    event.preventDefault(); // stop the page from reloading
+
+    // Grab values
+    const name = document.getElementById('trans-name').value.trim();
+    const amount = parseFloat(document.getElementById('trans-amount').value)  * (document.getElementById('trans-type').value == "expense" ? -1 : 1);
+    const icon = document.querySelector('input[name="trans-icon"]:checked').value;
+    const res = await fetch(url + "/add",{
+        method: "POST",
+        headers: {'Content-Type' : 'application/json', "Authorization" : `Bearer ${localStorage.getItem('token')}`},
+        body : JSON.stringify({'price'  : amount *1.00, 'name' : name, 'icon': icon})
+    })
+    if (!res.ok){
+        console.log(res.error);
+    }
+    else{
+        alert("Transaction added!");
+        location.reload();
+    }
+})

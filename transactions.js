@@ -14,12 +14,12 @@ const dataRead = async() =>{
     const data = res1.data;
     let pairs = [];
     for (let i=0; i < data.length ; i++){
-        pairs.push([date(data.time,false),data.total]);
+        pairs.push([date(data[i].time,false),data[i].total]);
     }
     pairs.sort((a,b) => b[0] - a[0]);
     for (let i=0; i< data.length; i++){
         let temp = ("" +pairs[i][0]).substring(4);
-        pairs[i][0] = makeMonth(parseInt(temp.substring(0,2)));
+        pairs[i][0] = monthMake(parseInt(temp.substring(0,2)));
     }
     // this was just sorted in descending order and therefore, we
     if (pairs.length > 12){
@@ -63,3 +63,57 @@ const dataRead = async() =>{
     )
 }
 dataRead();
+
+
+const date= (date, mode) => {
+    const year = parseInt(date.slice(0,4));
+    let month = parseInt(date.slice(5,7));
+    const month2 = (parseInt(date.slice(5,7))<10 ? "0" : 0) + parseInt(date.slice(5,7));
+    const day = parseInt(date.slice(8,10));
+    if (!mode){
+        return parseInt("" + year + month2 + day);
+    }
+    month = monthMake(month);
+    return day + " " + month +" "+ year;
+}
+const monthMake = (month) =>{
+    switch(month){
+        case 1:
+            month ="Jan";
+            break;
+        case 2:
+            month ="Feb";
+            break;
+        case 3:
+            month ="Mar";
+            break;
+        case 4:
+            month ="Apr";
+            break;
+        case 5:
+            month ="May";
+            break;
+        case 6:
+            month ="Jun";
+            break;
+        case 7:
+            month ="Jul";
+            break;
+        case 8:
+            month ="Aug";
+            break;
+        case 9:
+            month ="Sep";
+            break;
+        case 10:
+            month ="Oct";
+            break;
+        case 11:
+            month ="Nov";
+            break;
+        case 12:
+            month ="Dec";
+            break;
+    }
+    return month;
+}

@@ -1,3 +1,4 @@
+const url='https://lumor-backend.onrender.com';
 if (localStorage.getItem('token')==null){
     window.location.href = 'signin.html';
 }
@@ -115,35 +116,4 @@ const monthMake = (month) =>{
             break;
     }
     return month;
-}
-
-const data = async() =>{
-    const res= await fetch(url + "/data",{
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json', "Authorization" : `Bearer ${localStorage.getItem('token')}`},
-    })
-    if (res.status == 500){
-        alert("Internal Server Error");
-        console.log(res.error);
-    }
-    const res1 = await res.json();
-    // I need a way to take this data, and sort it by date... Fine we will use a 2-3 dimensional array, 
-    const data = res1.data;
-    let pairs = [];
-    for (let i=0; i < data.length ; i++){
-        pairs.push([date(data.time,false),data.total]);
-    }
-    pairs.sort((a,b) => {b[0] - a[0]});
-    for (let i=0; i< data.length; i++){
-        let temp = ("" +pairs[i][0]).substring(4);
-        pairs[i][0] = makeMonth(parseInt(temp.substring(0,2)));
-    }
-    // this was just sorted in descending order and therefore, we
-    if (pairs.length > 12){
-        pairs.splice(12,pairs.length -11);
-        //this should remove the extra ones im pretty sure
-    }
-    //now we need to process this into a p5.js graph thing... NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO :cryin:
-    // i    hate     p     5     .   j    s    man 
-    //whatever, idrc at this point.
 }

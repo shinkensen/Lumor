@@ -1,0 +1,13 @@
+{
+  "name": "tranasctopm",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.6.2"
+  },
+  "dependencies": {
+    "@cubejs-client/core": "^0.31.0",
+    "chart.js": "^4.0.0",
+    "cubejs": "^1.1.0"
+  }
+}

@@ -56,11 +56,57 @@
             </div>
         </div>
     </header>
+    
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
+    </script>
+    <div class="" style="justify-content: center; display:flex">
+        <div class="card chart-card" style="width: 50%; margin-top:50px">
+            <h3>Spending Overview</h3>
+            <div class="chart-placeholder" >
+                <canvas id="main" style="width:50%;max-width:700px; "></canvas>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="transactions.js"></script>
+    <div style="display: flex;">
+    <div class="card transactions-card" style="width: 30%;margin-top:10px;margin-left:25%">
+                    <h3>Recent Transactions</h3>
+                    <div class="transaction-list">
+                        <div class="transaction-item">
+                            <div class="transaction-icon" id="transIcon1" ></div>
+                            <div class="transaction-details">
+                                <div class="transaction-name" id="name1"></div>
+                                <div class="transaction-date" id="date1"></div>
+                            </div>
+                            <div class="transaction-amount" id="price1"></div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon" id="transIcon2"></div>
+                            <div class="transaction-details" >
+                                <div class="transaction-name" id="name2"></div>
+                                <div class="transaction-date" id="date2"></div>
+                            </div>
+                            <div class="transaction-amount" id="price2"></div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon" id="transIcon3"></div>
+                            <div class="transaction-details">
+                                <div class="transaction-name" id="name3"></div>
+                                <div class="transaction-date" id="date3"></div>
+                            </div>
+                            <div class="transaction-amount" id="price3"></div>
+                        </div>
+                    </div>
+                </div>
+            <div class="card" style="width: 19.5%;margin-top:10px;margin-left:10px">
+                    <h3>Spending Categories</h3>
+                    <canvas id="pieChart" style="max-width:250px;"></canvas>
+                </div>
+            </div>
     <script>
         const avatar= document.getElementById("avatar");
         avatar.src = localStorage.getItem("avatar")
-
     </script>
-    <script src="secScript.js"></script>
 </body>
 </html>

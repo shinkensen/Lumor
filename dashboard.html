@@ -106,10 +106,55 @@
 
             <div class="dashboard-content">
                 <div class="card chart-card">
-                    <h3>Spending Overview</h3>
-                    <div class="chart-placeholder">
-                        <p>Chart will be displayed here</p>
-                    </div>
+                    <h3>Add Transaction</h3>
+                    <form class="add-transaction-form">
+                        <div class="form-group">
+                            <label for="trans-name">Transaction Name</label>
+                            <input type="text" id="trans-name" placeholder="e.g., Coffee, Salary" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trans-amount">Amount</label>
+                            <input type="number" id="trans-amount" step="1" placeholder="0.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trans-type">Type</label>
+                            <select id="trans-type" required>
+                                <option value="" disabled selected>Select type</option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="trans-icon">Icon</label>
+                            <div class="icon-selector">
+                                <input type="radio" name="trans-icon" id="icon-food" value="🍔" required>
+                                <label for="icon-food" class="icon-option">🍔</label>
+                                <input type="radio" name="trans-icon" id="icon-transport" value="🚗">
+                                <label for="icon-transport" class="icon-option">🚗</label>
+                                <input type="radio" name="trans-icon" id="icon-shopping" value="🛍️">
+                                <label for="icon-shopping" class="icon-option">🛍️</label>
+                                <input type="radio" name="trans-icon" id="icon-entertainment" value="🎬">
+                                <label for="icon-entertainment" class="icon-option">🎬</label>
+                                <input type="radio" name="trans-icon" id="icon-health" value="💊">
+                                <label for="icon-health" class="icon-option">💊</label>
+                                <input type="radio" name="trans-icon" id="icon-bills" value="💡">
+                                <label for="icon-bills" class="icon-option">💡</label>
+                                <input type="radio" name="trans-icon" id="icon-salary" value="💰">
+                                <label for="icon-salary" class="icon-option">💰</label>
+                                <input type="radio" name="trans-icon" id="icon-gift" value="🎁">
+                                <label for="icon-gift" class="icon-option">🎁</label>
+                                <input type="radio" name="trans-icon" id="icon-home" value="🏠">
+                                <label for="icon-home" class="icon-option">🏠</label>
+                                <input type="radio" name="trans-icon" id="icon-coffee" value="☕">
+                                <label for="icon-coffee" class="icon-option">☕</label>
+                                <input type="radio" name="trans-icon" id="icon-gym" value="💪">
+                                <label for="icon-gym" class="icon-option">💪</label>
+                                <input type="radio" name="trans-icon" id="icon-travel" value="✈️">
+                                <label for="icon-travel" class="icon-option">✈️</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Add Transaction</button>
+                    </form>
                 </div>
 
                 <div class="card transactions-card">
@@ -140,6 +185,7 @@
                             <div class="transaction-amount" id="price3"></div>
                         </div>
                     </div>
+                    <a href="transactions.html" class="view-all-link">View All Transactions →</a>
                 </div>
             </div>
         </div>

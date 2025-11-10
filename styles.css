@@ -759,3 +759,162 @@ body {
 #redirect:hover{
     color:var(--primary-dark);
 }
+
+/* ==================== */
+/* Add Transaction Form */
+/* ==================== */
+.add-transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.1);
+}
+
+.form-group input::placeholder {
+    color: var(--text-light);
+}
+
+.form-group select {
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.form-group select option[value=""][disabled] {
+    color: var(--text-light);
+}
+
+.add-transaction-form .btn-primary {
+    margin-top: 10px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    width: 100%;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #5FA8F5 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-transaction-form .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.add-transaction-form .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(74, 144, 226, 0.6);
+    background: linear-gradient(135deg, #5FA8F5 0%, var(--accent-color) 100%);
+}
+
+.add-transaction-form .btn-primary:hover::before {
+    left: 100%;
+}
+
+.add-transaction-form .btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 15px rgba(74, 144, 226, 0.5);
+}
+
+.icon-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.icon-selector input[type="radio"] {
+    display: none;
+}
+
+.icon-option {
+    font-size: 1.4rem;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    background: var(--background);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-option:hover {
+    background: rgba(74, 144, 226, 0.12);
+    border-color: rgba(74, 144, 226, 0.3);
+}
+
+.icon-option:active {
+    transform: scale(0.92);
+}
+
+.icon-selector input[type="radio"]:checked + .icon-option {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* ==================== */
+/* View All Link */
+/* ==================== */
+.view-all-link {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    margin-top: 15px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.view-all-link:hover {
+    background: var(--background);
+    color: var(--primary-color);
+}

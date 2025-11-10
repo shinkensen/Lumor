@@ -1,4 +1,4 @@
-const url='https://lumor-backend.onrender.com';
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const loadingOverlay = document.getElementById('loadingOverlay');

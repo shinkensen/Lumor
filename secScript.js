@@ -31,8 +31,9 @@ const ava= async() => {
     avatar.src = pfpUrl || 'https://wallpaperaccess.com/full/1854458.jpg';
     localStorage.setItem("avatar", pfpUrl|| 'https://wallpaperaccess.com/full/1854458.jpg')
 }
-setTimeout(ava,1000);
-
+if (!localStorage.getItem("avatar")){ava();}
+else{avatar.src = localStorage.getItem("avatar")};
+let mostRecentMonth ="", mostRecentYear= "";
 const r1= [document.getElementById("transIcon1"), document.getElementById("name1"),document.getElementById("date1"),document.getElementById("price1")]
 const r2= [document.getElementById("transIcon2"), document.getElementById("name2"),document.getElementById("date2"),document.getElementById("price2")]
 const r3= [document.getElementById("transIcon3"), document.getElementById("name3"),document.getElementById("date3"),document.getElementById("price3")]
@@ -62,7 +63,17 @@ const mostRecent = async()=>{
             rs[i][3].innerText = "$" + trans.price.toFixed(2);
             rs[i][3].classList.add("negative");
         }
-    }}
+    }
+    if (transactions.length>0){
+    mostRecentMonth = parseInt(transactions[0].time.slice(5,7));
+    mostRecentYear = parseInt(transactions[0].time.slice(0,4));
+    }
+    else {
+        const now = new Date();
+        mostRecentMonth = now.getMonth() + 1;
+        mostRecentYear = now.getFullYear();
+    }
+}
 }
 const date= (date, mode) => {
     const year = parseInt(date.slice(0,4));
@@ -75,7 +86,7 @@ const date= (date, mode) => {
     month = monthMake(month);
     return day + " " + month +" "+ year;
 }
-mostRecent()
+
 const monthMake = (month) =>{
     switch(month){
         case 1:
@@ -121,7 +132,8 @@ const form = document.querySelector('.add-transaction-form');
 
 form.addEventListener('submit', async(event) => {
     event.preventDefault(); // stop the page from reloading
-
+    const btn = document.getElementById("submit");
+    btn.disabled= true;
     // Grab values
     const name = document.getElementById('trans-name').value.trim();
     const amount = parseFloat(document.getElementById('trans-amount').value)  * (document.getElementById('trans-type').value == "expense" ? -1 : 1);
@@ -132,10 +144,38 @@ form.addEventListener('submit', async(event) => {
         body : JSON.stringify({'price'  : amount *1.00, 'name' : name, 'icon': icon})
     })
     if (!res.ok){
-        console.log(res.error);
+        const err = await res.text()
+        console.log(err);
     }
     else{
         alert("Transaction added!");
+        btn.disabled = false;
         location.reload();
     }
 })
+const s = async() =>{
+    console.log("sending: "  + mostRecentMonth + "" +mostRecentYear)
+    const res = await fetch(url + "/stats",{
+        method: "POST",
+        headers : {"Content-type" : "application/json", "Authorization" : `Bearer ${localStorage.getItem('token')}`},
+        body: JSON.stringify({month: mostRecentMonth, year: mostRecentYear})
+    })
+    if (!res.ok){
+        const err = await res.text()
+        console.error("Server Error",err);
+        return;
+    }
+    const data= await res.json();
+    console.log(data)
+    document.getElementById("total").innerText = `$${data.balance.toFixed(2)}`;
+    document.getElementById("income").innerText = `$${data.income.toFixed(2)}`;
+    document.getElementById("expenses").innerText = `$${data.expense.toFixed(2)}`;
+    document.getElementById("savings").innerText = `${data.savings.toFixed(2)}%`;
+    if (data.savings<0){
+        document.getElementById("savings").classList.add("negative");
+    }
+    else{
+        document.getElementById("savings").classList.add("positive");
+    }
+}
+(async()=>{await mostRecent(); await s()})()

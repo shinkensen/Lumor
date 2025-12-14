@@ -1,4 +1,4 @@
-const url='https://lumor-backend.onrender.com/'
+const url='https://lumor-backend.onrender.com'
 const go=document.getElementById("go");
 const emailInput= document.getElementById("email");
 const passInput= document.getElementById("pass");
@@ -54,10 +54,10 @@ go.addEventListener("click", ()=>{
     else{
         const f=async () => {
             let url1=faviconUrls[0];
-            if (!(nameInput.value.charCodeAt(0)<65||nameInput.value.charCodeAt(0)>122)){
+            if (!(nameInput.value.toUpperCase().charCodeAt(0)<65||nameInput.value.toUpperCase().charCodeAt(0)>122)){
                 url1=faviconUrls[nameInput.value.charCodeAt(0)-65];
             }
-            const response= await fetch(url + 'signup',{
+            const response= await fetch(url + '/signup',{
                 method: 'POST',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify({email: emailInput.value, pass: passInput.value, name: nameInput.value, pfp: url1})
@@ -66,7 +66,8 @@ go.addEventListener("click", ()=>{
             console.log(data)
             if (!response.ok){
                 if (response.status==500){
-                    alert(response.error)
+                    const error = await response.text()
+                    alert(error)
                     clear()
                 }
                 else{
@@ -124,3 +125,15 @@ const passCheck = (name)=>{
     }
     return ["valid",true]
 }
+const f= async() =>{
+    const res = await fetch(url + "/valid",{
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify({token: localStorage.getItem('token')})
+    })
+    const data= await res.json();  
+    if (res.status == 200){
+        window.location.href = 'dashboard.html'
+    }
+}
+f();

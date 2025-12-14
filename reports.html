@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Lumor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body class="dashboard-page">
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo-small">
+                    <svg width="30" height="42" viewBox="0 0 75 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M47.6065 100.505C49.0911 100.505 50.2947 101.735 50.2947 103.253C50.2947 104.77 49.0911 106 47.6065 106H27.3152C25.8307 106 24.6271 104.77 24.6271 103.253C24.6271 101.735 25.8306 100.505 27.3152 100.505H47.6065Z" fill="#FFB800"/>
+                        <path d="M53.3297 90.0468C54.9101 90.0469 56.1913 91.3563 56.1913 92.9716C56.1913 94.5868 54.9101 95.8963 53.3297 95.8963H20.8983C19.318 95.8963 18.0368 94.5868 18.0367 92.9716C18.0367 91.3563 19.3179 90.0469 20.8983 90.0468H53.3297Z" fill="#FFB800"/>
+                        <path d="M28.6739 49.2757C29.9469 46.3741 32.1403 47.6565 32.1545 47.6648L32.2817 47.7398C32.2817 47.7398 34.3581 48.9652 32.53 51.5512C30.7019 54.1372 24.0033 62.0947 24.0033 62.0947L24.0082 62.0805C24.1516 61.6621 27.4248 52.1228 28.6739 49.2757Z" fill="#FFE082"/>
+                        <path d="M43.1876 47.4687C43.1989 47.4621 45.2675 46.2514 46.5412 49.1545C47.8175 52.0636 51.207 61.96 51.2116 61.9737L51.2022 61.9623C50.9197 61.6265 44.473 53.9592 42.6851 51.43C40.8636 48.8532 43.0449 47.553 43.0604 47.5438L43.1876 47.4687Z" fill="#FFE082"/>
+                        <path d="M23.5889 40.8136C26.3929 39.4252 27.265 41.8575 27.2682 41.8664L27.3185 42.0073C27.3185 42.0073 28.1385 44.3101 25.1118 45.0901C22.0851 45.8701 11.9489 47.5651 11.9489 47.5651L11.9616 47.5575C12.334 47.3316 20.8414 42.174 23.5889 40.8136Z" fill="#FFE082"/>
+                        <path d="M47.8204 41.5538C47.8204 41.5538 48.6406 39.2509 51.4498 40.6419C54.2559 42.0313 63.0704 47.3818 63.0896 47.3934L63.0752 47.391C62.6481 47.3194 52.8872 45.6813 49.9268 44.9184C46.9071 44.1401 47.7663 41.7059 47.7703 41.6947L47.8204 41.5538Z" fill="#FFE082"/>
+                        <path d="M63.1097 28.5378C62.7374 28.7637 54.2299 33.9213 51.4825 35.2817C48.6784 36.6701 47.8063 34.2378 47.8032 34.2289L47.7529 34.088C47.7511 34.0832 46.9361 31.7844 49.9595 31.0052C52.9863 30.2252 63.1224 28.5302 63.1224 28.5302L63.1097 28.5378Z" fill="#FFE082"/>
+                        <path d="M11.9841 28.3022C12.4112 28.3738 22.1722 30.0119 25.1325 30.7748C28.1476 31.5519 27.2956 33.9799 27.289 33.9985L27.2387 34.1396C27.2346 34.1511 26.4116 36.4388 23.6095 35.0513C20.8044 33.6624 11.9951 28.3152 11.9697 28.2998L11.9841 28.3022Z" fill="#FFE082"/>
+                        <path d="M51.2284 13.9077C51.0853 14.3251 47.8117 23.8654 46.5626 26.7126C45.2877 29.6183 43.09 28.3282 43.0819 28.3235L42.9549 28.2484C42.9549 28.2484 40.8786 27.0232 42.7066 24.4372C44.5347 21.8511 51.2332 13.8935 51.2332 13.8935L51.2284 13.9077Z" fill="#FFE082"/>
+                        <path d="M23.9942 13.7823C24.2769 14.1185 30.7234 21.7855 32.5112 24.3146C34.3358 26.8959 32.1437 28.196 32.1357 28.2008L32.0087 28.2759C32.0087 28.2759 29.9322 29.5011 28.6551 26.5901C27.3779 23.679 23.9845 13.7709 23.9845 13.7709L23.9942 13.7823Z" fill="#FFE082"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.9653 0.00334879C41.981 -0.0644547 46.9592 0.897989 51.6041 2.83358C56.2489 4.76919 60.4662 7.63863 64.0057 11.2715C67.5451 14.9043 70.3345 19.2268 72.2087 23.9823C74.0159 28.5681 74.9363 33.4666 74.9212 38.4069C74.9475 38.4091 74.9738 38.4113 75 38.4135C74.8868 39.8405 74.7543 41.276 74.5851 42.7198C73.9893 49.2679 71.6354 56.9147 66.8046 61.9484L66.9043 61.8269C61.755 68.015 58.9278 74.5737 57.7117 82.5369L57.3284 84.7345L55.2385 84.7293C53.8924 84.7326 52.5462 84.7361 51.2001 84.7395C43.3314 84.7591 35.4626 84.7787 27.5938 84.7983C25.0173 84.8048 22.4407 84.8113 19.8642 84.8177L17.6801 84.8231L17.2968 82.6256C16.0807 74.6624 13.2535 68.1036 8.10415 61.9155L8.2039 62.037C3.37306 57.0033 1.01915 49.3565 0.423438 42.8084C0.311851 41.8566 0.216255 40.9082 0.131622 39.9636L0.0360999 39.968C-0.184055 34.8461 0.604452 29.7311 2.35488 24.9265C4.10532 20.122 6.78214 15.7256 10.2263 11.9983C13.6705 8.27111 17.812 5.28874 22.4052 3.22826C26.9983 1.16778 31.9497 0.0711788 36.9653 0.00334879ZM37.5476 5.84938C19.78 5.84944 5.37638 20.5312 5.37635 38.642C5.37635 39.0052 5.38196 39.3671 5.39346 39.7274L5.3357 39.7298C5.4109 40.5496 5.49433 41.3656 5.58924 42.175C6.2648 48.5411 7.9266 54.0257 12.0874 58.4981L12.1872 58.6196C16.9644 64.1832 20.5552 71.8759 22.0233 79.3285C22.6225 79.33 23.2218 79.3316 23.8211 79.3331C28.0786 79.3438 32.3362 79.3542 36.5937 79.3648V41.6715C36.4656 41.6401 36.3377 41.6014 36.211 41.5543C34.4109 40.8846 33.4828 38.8502 34.1379 37.0103C34.7931 35.1705 36.7837 34.2219 38.5838 34.8916C40.3838 35.5612 41.312 37.5955 40.6568 39.4353C40.2371 40.614 39.2693 41.4269 38.1546 41.6829V79.3688C41.2455 79.3765 44.3364 79.3843 47.4273 79.392C49.269 79.3966 51.1108 79.4012 52.9524 79.4058C54.3995 71.9017 58.0086 64.136 62.8213 58.531L62.921 58.4095C67.0819 53.937 68.7437 48.4524 69.4193 42.0864C69.5441 41.0214 69.649 39.945 69.7414 38.8632L69.718 38.8629C69.7185 38.7893 69.7189 38.7157 69.7189 38.642C69.7188 20.5312 55.3152 5.84942 37.5476 5.84938Z" fill="#FFB800"/>
+                    </svg>
+                </div>
+                <span class="brand-name">Lumor</span>
+            </div>
+            
+            <nav class="nav">
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="transactions.html" class="nav-link">Transactions</a>
+                <a href="#" class="nav-link">Budgets</a>
+                <a href="#" class="nav-link">Goals</a>
+                <a href="reports.html" class="nav-link active">Reports</a>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="icon-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="icon-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </button>
+                <div class="user-avatar">
+                    <img id="avatar" src="" alt="User">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Export Reports</h1>
+                <p class="subtitle">Download your financial data in various formats</p>
+            </div>
+
+            <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="card">
+                    <div class="report-icon">📊</div>
+                    <h3>Transaction Report (CSV)</h3>
+                    <p style="color: var(--text-light); margin: 15px 0;">Export all your transactions as a CSV file for spreadsheet analysis.</p>
+                    <button class="btn-primary" onclick="downloadCSV()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download CSV
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="report-icon">📄</div>
+                    <h3>Monthly Summary (PDF)</h3>
+                    <p style="color: var(--text-light); margin: 15px 0;">Generate a detailed PDF report of your monthly financial activity.</p>
+                    <button class="btn-primary" onclick="downloadPDF()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download PDF
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="report-icon">📈</div>
+                    <h3>Annual Report (PDF)</h3>
+                    <p style="color: var(--text-light); margin: 15px 0;">Comprehensive yearly financial report with charts and insights.</p>
+                    <button class="btn-primary" onclick="downloadAnnualPDF()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download PDF
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="report-icon">💾</div>
+                    <h3>Full Data Export (JSON)</h3>
+                    <p style="color: var(--text-light); margin: 15px 0;">Export all your data in JSON format for backup or migration.</p>
+                    <button class="btn-primary" onclick="downloadJSON()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download JSON
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="report-icon">🗂️</div>
+                    <h3>Category Breakdown (CSV)</h3>
+                    <p style="color: var(--text-light); margin: 15px 0;">Export spending breakdown by categories for detailed analysis.</p>
+                    <button class="btn-primary" onclick="downloadCategoryCSV()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download CSV
+                    </button>
+                </div>
+
+                <div class="card">
+                    <div class="report-icon">📧</div>
+                    <h3>Email Report</h3>
+                    <p style="color: var(--text-light); margin: 15px 0;">Send a comprehensive report directly to your email address.</p>
+                    <button class="btn-primary" onclick="emailReport()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Send Email
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const avatar = document.getElementById("avatar");
+        avatar.src = localStorage.getItem("avatar");
+
+        const url = 'https://project-iqv0.onrender.com';
+
+        async function downloadCSV() {
+            try {
+                const res = await fetch(url + "/data-filtered", {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json', "Authorization": `Bearer ${localStorage.getItem('token')}`}
+                });
+                if (!res.ok) throw new Error('Failed to fetch data');
+                const result = await res.json();
+                const csv = 'Date,Total Balance\n' + (result.data || []).map(t => 
+                    `${t.time},${t.total}`
+                ).join('\n');
+                downloadFile(csv, 'balance-history.csv', 'text/csv');
+            } catch (err) {
+                alert('Error downloading CSV: ' + err.message);
+            }
+        }
+
+        async function downloadJSON() {
+            try {
+                const res = await fetch(url + "/data-filtered", {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json', "Authorization": `Bearer ${localStorage.getItem('token')}`}
+                });
+                if (!res.ok) throw new Error('Failed to fetch data');
+                const result = await res.json();
+                downloadFile(JSON.stringify(result.data || [], null, 2), 'balance-history.json', 'application/json');
+            } catch (err) {
+                alert('Error downloading JSON: ' + err.message);
+            }
+        }
+
+        function downloadPDF() {
+            alert('PDF generation coming soon! This will create a monthly summary report.');
+        }
+
+        function downloadAnnualPDF() {
+            alert('Annual PDF generation coming soon! This will create a comprehensive yearly report.');
+        }
+
+        async function downloadCategoryCSV() {
+            alert('Category breakdown requires transaction details. Please add an API endpoint that returns transaction fields: name, category, icon, and price.');
+        }
+
+        function emailReport() {
+            alert('Email functionality coming soon! Reports will be sent to your registered email.');
+        }
+
+        function downloadFile(content, filename, type) {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+    <style>
+        .report-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .card p {
+            text-align: center;
+            line-height: 1.5;
+        }
+        .card .btn-primary {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 15px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #5FA8F5 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .card .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(74, 144, 226, 0.6);
+            background: linear-gradient(135deg, #5FA8F5 0%, var(--accent-color) 100%);
+        }
+        .card .btn-primary:hover::before {
+            left: 100%;
+        }
+        .card .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 15px rgba(74, 144, 226, 0.5);
+        }
+        .card .btn-primary svg {
+            stroke: var(--white);
+        }
+    </style>
+</body>
+</html>

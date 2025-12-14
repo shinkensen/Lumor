@@ -204,7 +204,7 @@ body {
 /* Hero Section */
 /* ==================== */
 .hero {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, #1E2A3A 0%, #2C3E50 100%);

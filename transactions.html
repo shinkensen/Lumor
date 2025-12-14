@@ -68,7 +68,6 @@
             </div>
         </div>
     </div>
-    <script type="module" src="transactions.js"></script>
     <div style="display: flex;">
     <div class="card transactions-card" style="width: 30%;margin-top:10px;margin-left:25%">
                     <h3>Recent Transactions</h3>
@@ -104,9 +103,14 @@
                     <canvas id="pieChart" style="max-width:250px;"></canvas>
                 </div>
             </div>
+    <div class="card" style="width: 80%;margin: 30px auto;">
+        <h3>Transaction History</h3>
+        <div id="transaction-history" class="transaction-list"></div>
+    </div>
     <script>
         const avatar= document.getElementById("avatar");
         avatar.src = localStorage.getItem("avatar")
     </script>
+    <script type="module" src="transactions.js"></script>
 </body>
 </html>

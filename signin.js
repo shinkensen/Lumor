@@ -1,4 +1,4 @@
-const url='https://lumor-backend.onrender.com/'
+const url='https://lumor-backend.onrender.com'
 const go=document.getElementById("go");
 const emailInput= document.getElementById("email");
 const passInput= document.getElementById("pass");
@@ -18,7 +18,7 @@ go.addEventListener("click", ()=>{
     }
     else{
         const f=async () => {
-            const response= await fetch(url + "login",{
+            const response= await fetch(url + "/login",{
                 method: 'POST',
                 headers: {'Content-Type' : 'application/json'},
                 body: JSON.stringify({email: emailInput.value,pass: passInput.value})
@@ -86,3 +86,15 @@ const passCheck = (name)=>{
     }
     return true;
 }
+const f= async() =>{
+    const res = await fetch(url + "/valid",{
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify({token: localStorage.getItem('token')})
+    })
+    const data= await res.json();  
+    if (res.status == 200){
+        window.location.href = 'dashboard.html'
+    }
+}
+f();

@@ -34,7 +34,7 @@
                 <a href="transactions.html" class="nav-link">Transactions</a>
                 <a href="#" class="nav-link">Budgets</a>
                 <a href="#" class="nav-link">Goals</a>
-                <a href="#" class="nav-link">Reports</a>
+                <a href="reports.html" class="nav-link">Reports</a>
             </nav>
             
             <div class="header-actions">
@@ -87,10 +87,10 @@
 
                 <div class="card summary-card">
                     <div class="card-header">
-                        <span class="card-icon" id="expenses">📉</span>
+                        <span class="card-icon">📉</span>
                         <span class="card-label">Expenses</span>
                     </div>
-                    <div class="card-value" id="savings">$----</div>
+                    <div class="card-value" id="expenses">$----</div>
                     <div class="card-change negative"></div>
                 </div>
 
@@ -99,7 +99,7 @@
                         <span class="card-icon">💎</span>
                         <span class="card-label">Savings</span>
                     </div>
-                    <div class="card-value">$----</div>
+                    <div class="card-value" id="savings">$----</div>
                     <div class="card-change positive"></div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="form-group">
                             <label for="trans-amount">Amount</label>
-                            <input type="number" id="trans-amount" step="1.00" placeholder="0.00" required>
+                            <input type="number" id="trans-amount" step="0.01" placeholder="0.00" required>
                         </div>
                         <div class="form-group">
                             <label for="trans-type">Type</label>
@@ -153,7 +153,7 @@
                                 <label for="icon-travel" class="icon-option">✈️</label>
                             </div>
                         </div>
-                        <button type="submit" class="btn-primary">Add Transaction</button>
+                        <button type="submit" id="submit" class="btn-primary">Add Transaction</button>
                     </form>
                 </div>
 
